@@ -72,6 +72,16 @@
       console.error('Error during service worker registration:', e);
     });
   }
-
   // Your custom JavaScript goes here
+  document.getElementById('cloneBacon').onclick = function() {
+    let baconImg = document.getElementById('BaconImg');
+
+    let cloneImgInfo = {
+      src: baconImg.src,
+      width: baconImg.clientWidth,
+      height: baconImg.clientHeight,
+    };
+
+    console.log(cloneImgInfo);
+  };
 })();
