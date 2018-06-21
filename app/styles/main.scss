@@ -18,6 +18,9 @@
 Note: any .css or .scss files included in the 'styles' directory
 will be correctly compiled during `gulp serve` and `gulp`
  */
+ @import "src/material-design-lite";
+
+
 
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
@@ -210,4 +213,133 @@ html, body {
 }
 .mdl-demo .mdl-menu__container {
   z-index: 99;
+}
+
+// Custom CSS Class
+
+$btn-background-color: #6bd400;
+$btn-background-shadow-color: #3f8503;
+
+$border-input-radius: 3px;
+$border-round-radius: 50%;
+$border-size: 2px;
+$border-style-solid: solid;
+$border-style-dotted: dotted;
+$border-style-dashed: dashed;
+$border-bottom-color: #a2a89c;
+
+$font-normal-size: 20px;
+$font-strong-size: 25px;
+$font-weight-bold: bold;
+
+$round-no-btn-color: white;
+$round-no-bkg-color: black;
+$round-no-size: 20px;
+$round-no-padding: 10px;
+$round-no-margin: 25px;
+
+$text-align-center: center;
+
+$full-size: 100%;
+$grid-out-size: 36px;
+
+$border-grid-margin: 10px;
+$border-grid-height: calc(#{$full-size} - #{$grid-out-size});
+$label-icon-position: absolute;
+$label-icon-right: 0px;
+$label-icon-top: 20px;
+
+.checkout-form {
+
+  padding: 20px 60px;
+  
+  .mdl-custom-badge {
+
+    .mdl-round-no {
+      color: $round-no-btn-color;
+      background-color: $round-no-bkg-color;
+      border-radius: $border-round-radius;
+      font-size: $font-normal-size;
+      padding: $round-no-padding;
+      width: $round-no-size;
+      height: $round-no-size;
+      font-weight: $font-weight-bold;
+      text-align: $text-align-center;
+      display: inline-block;
+    }
+
+    .mdl-round-no-description {
+      display: inline-block;
+      font-size: $font-normal-size;
+      color: $round-no-bkg-color;
+      font-weight: $font-weight-bold;
+      margin-left: $round-no-margin;
+    }
+  }
+  
+  .mdl-cell.mdl-element{
+    border-radius: $border-input-radius;
+    border-bottom: $border-size $border-style-solid $border-bottom-color;
+  }
+
+  .personal-info-sect {
+
+    .left-panel {
+        
+    }
+
+    .right-panel {
+      .border-grid {
+        border: $border-size $border-style-dashed $round-no-bkg-color;
+        margin: $border-grid-margin;
+        height: $border-grid-height;
+        color: $round-no-bkg-color;
+      }
+
+      .border-bottom {
+        width: $full-size;
+        height: $border-size;
+        border-bottom: $border-size $border-style-dotted $round-no-bkg-color;
+        margin: 0 8px;
+        
+      }
+
+      .floatright {
+        float: right;
+      }
+      
+      .floatleft {
+        float: left;
+      }
+      
+      .clear {
+        clear: both;
+      }
+
+      .totalamount {
+        font-size: $font-strong-size;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  
+  .payment-detail-sect {
+
+    .label-icon {
+      position: $label-icon-position;
+      right: $label-icon-right;
+      top: $label-icon-top;
+    }
+    
+    .purchase_btn {
+      width: $full-size;
+      color: $round-no-btn-color;
+      background-color: $btn-background-color;
+      font-weight: $font-weight-bold;
+      border-radius: $border-input-radius;
+      border-bottom: $border-size $border-style-solid $btn-background-shadow-color;
+    }
+
+  }
+  
 }

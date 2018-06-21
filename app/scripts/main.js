@@ -73,15 +73,16 @@
     });
   }
   // Your custom JavaScript goes here
-  document.getElementById('cloneBacon').onclick = function() {
-    let baconImg = document.getElementById('BaconImg');
-
-    let cloneImgInfo = {
-      src: baconImg.src,
-      width: baconImg.clientWidth,
-      height: baconImg.clientHeight,
+  let cloneBtnElm = document.getElementById('cloneBacon');
+  if (cloneBtnElm != null) {
+    cloneBtnElm.onclick = function() {
+      let baconImg = document.getElementById('BaconImg');
+      let cloneImgInfo = {
+        src: baconImg.src,
+        width: baconImg.clientWidth,
+        height: baconImg.clientHeight,
+      };
+      console.log(cloneImgInfo);
     };
-
-    console.log(cloneImgInfo);
-  };
+  }
 })();
