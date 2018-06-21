@@ -264,3 +264,7 @@ const fs = require('fs');
 gulp.task('submodule', () => {
   fs.symlinkSync('../submodule/submodule.html', 'app/submodule.html');
 });
+
+gulp.task('checkout', () => {
+  fs.symlinkSync('../checkout/checkout.html', 'app/checkout.html');
+});
