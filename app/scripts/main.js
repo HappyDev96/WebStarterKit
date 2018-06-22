@@ -17,7 +17,7 @@
  *
  */
 /* eslint-env browser */
-(function() {
+(() => {
   'use strict';
 
   // Check to make sure service workers are supported in the current browser,
@@ -37,9 +37,9 @@
   if ('serviceWorker' in navigator &&
       (window.location.protocol === 'https:' || isLocalhost)) {
     navigator.serviceWorker.register('service-worker.js')
-    .then(function(registration) {
+    .then((registration) => {
       // updatefound is fired if service-worker.js changes.
-      registration.onupdatefound = function() {
+      registration.onupdatefound = () => {
         // updatefound is also fired the very first time the SW is installed,
         // and there's no need to prompt for a reload at that point.
         // So check here to see if the page is already controlled,
@@ -49,7 +49,7 @@
           // https://slightlyoff.github.io/ServiceWorker/spec/service_worker/index.html#service-worker-container-updatefound-event
           const installingWorker = registration.installing;
 
-          installingWorker.onstatechange = function() {
+          installingWorker.onstatechange = () => {
             switch (installingWorker.state) {
               case 'installed':
                 // At this point, the old content will have been purged and the
@@ -68,16 +68,16 @@
           };
         }
       };
-    }).catch(function(e) {
+    }).catch((e) => {
       console.error('Error during service worker registration:', e);
     });
   }
   // Your custom JavaScript goes here
   let cloneBacon = document.getElementById('cloneBacon');
-  if ( cloneBacon != null ) {
-    cloneBacon.onclick = function() {
-      let baconImg = document.getElementById('BaconImg');
-      let cloneImgInfo = {
+  if ( cloneBacon ) {
+    cloneBacon.onclick = () => {
+      let baconImg = document.getElementById('BaconImg'),
+          cloneImgInfo = {
         src: baconImg.src,
         width: baconImg.clientWidth,
         height: baconImg.clientHeight,
@@ -85,20 +85,5 @@
       console.log(cloneImgInfo);
     };
   }
-  // let purchaseSubmit = document.getElementById('purchase_btn');
-  // if (purchaseSubmit != null ) {
-  //   purchaseSubmit.onclick = function(event) {
-  //     event.preventDefault();
-  //     console.log('123123');
-  //     checkBlank('first_name');
-  //   };
-  // }
-  // let checkBlank = function(elem) {
-  //   let x = document.forms['checkout'].elements[elem].value;
-  //     if (x == '') {
-  //         alert('Must filled out');
-  //         return false;
-  //     }
-  // };
 })();
 
