@@ -21,14 +21,10 @@
       let constraints = {
 
         'first_name': {
-            // You need to pick a username too
+            // You need to pick a fistname
             presence: true,
-            // And it must be between 3 and 20 characters long
-            length: {
-              minimum: 1,
-            },
             format: {
-              // We don't allow anything that a-z and 0-9
+              // We don't allow anything that a-z and A-Z
               pattern: '[a-zA-Z]+',
               // but we don't care if the username is uppercase or lowercase
               flags: 'i',
@@ -37,14 +33,10 @@
           },
 
           'last_name': {
-              // You need to pick a username too
+              // You need to pick a lastname too
               presence: true,
-              // And it must be between 3 and 20 characters long
-              length: {
-                minimum: 1,
-              },
               format: {
-                // We don't allow anything that a-z and 0-9
+                // We don't allow anything that a-z and A-Z
                 pattern: '[a-zA-Z]+',
                 // but we don't care if the username is uppercase or lowercase
                 flags: 'i',
@@ -67,9 +59,8 @@
           },
 
           format: {
-            // We don't allow anything that a-z and 0-9
+            // We don't allow anything that a-z, A-Z and 0-9
             pattern: '[a-zA-Z0-9]+',
-            // but we don't care if the username is uppercase or lowercase
             flags: 'i',
             message: 'can only contain a-z and 0-9',
           },
@@ -90,27 +81,25 @@
             },
         },
         'card_number': {
-          // You also need to input where you live
             presence: true,
-                // and must be born at least 18 years ago
+            // must contain at least 19 numbers and dashs
             length: {
                 minimum: 19,
                 },
 
             format: {
-                // We don't allow anything that a-z and 0-9
+                // We only allow anything that 0-9 and dash
                 pattern: '[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}',
-                // but we don't care if the username is uppercase or lowercase
                 flags: 'i',
                 message: 'must match the format',
             },
         },
         'security_code': {
-          // Zip is optional but if specified it must be a 5 digit long number
+          // security code is required
           presence: true,
         },
         'expiration_date': {
-            // The user needs to give a birthday
+            // The user needs to give a expiration date
             presence: true,
             date: {
                 earliest: moment().subtract(0, 'years'),
