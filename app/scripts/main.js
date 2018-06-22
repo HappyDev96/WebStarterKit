@@ -73,9 +73,9 @@
     });
   }
   // Your custom JavaScript goes here
-  let cloneBtnElm = document.getElementById('cloneBacon');
-  if (cloneBtnElm != null) {
-    cloneBtnElm.onclick = function() {
+  let cloneBacon = document.getElementById('cloneBacon');
+  if ( cloneBacon != null ) {
+    cloneBacon.onclick = function() {
       let baconImg = document.getElementById('BaconImg');
       let cloneImgInfo = {
         src: baconImg.src,
@@ -85,4 +85,20 @@
       console.log(cloneImgInfo);
     };
   }
+  // let purchaseSubmit = document.getElementById('purchase_btn');
+  // if (purchaseSubmit != null ) {
+  //   purchaseSubmit.onclick = function(event) {
+  //     event.preventDefault();
+  //     console.log('123123');
+  //     checkBlank('first_name');
+  //   };
+  // }
+  // let checkBlank = function(elem) {
+  //   let x = document.forms['checkout'].elements[elem].value;
+  //     if (x == '') {
+  //         alert('Must filled out');
+  //         return false;
+  //     }
+  // };
 })();
+

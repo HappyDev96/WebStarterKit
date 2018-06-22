@@ -192,8 +192,8 @@
   color: $input-text-error-color;
   position: absolute;
   font-size: $input-text-floating-label-fontsize;
-  margin-top: 3px;
-  visibility: hidden;
+  // margin-top: 3px;
+  // visibility: hidden;
   display: block;
 
   .mdl-textfield.is-invalid & {

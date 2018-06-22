@@ -50,6 +50,10 @@
 
     <!-- Your styles -->
     <link rel="stylesheet" href="styles/main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.12.0/validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -66,7 +70,7 @@
         </div>
       </header>
       <main class="mdl-layout__content">
-            <form class="checkout-form padding40">
+            <form class="checkout-form padding40" action="#" name="checkout">
 
                 <div class="personal-info-sect">
                     <div class="mdl-custom-badge">
@@ -78,48 +82,53 @@
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="fist_name" placeholder="Elon">
-                                        <label class="mdl-textfield__label" for="sample3">First Name</label>
+                                        <input class="mdl-textfield__input" type="text" id="first_name" name="first_name" placeholder="Elon">
+                                        <label class="mdl-textfield__label" for="first_name">First Name</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="last_name" placeholder="Musk">
-                                        <label class="mdl-textfield__label" for="sample3">Last Name</label>
+                                        <input class="mdl-textfield__input" type="text" id="last_name" name="last_name" placeholder="Musk">
+                                        <label class="mdl-textfield__label" for="last_name">Last Name</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-element mdl-cell--12-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="email" id="last_name" placeholder="elon@spacex.com">
-                                        <label class="mdl-textfield__label" for="sample3">Email</label>
+                                        <input class="mdl-textfield__input" type="email" id="email_addr" name="email_addr" placeholder="elon@spacex.com">
+                                        <label class="mdl-textfield__label" for="email_addr">Email</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <select class="mdl-textfield__input">
+                                        <select class="mdl-textfield__input" id="country" name="country">
                                             <option>United States</option>
                                             <option>China</option>
                                             <option>Poland</option>
                                         </select>
-                                        <label class="mdl-textfield__label" for="sample3">Country</label>
+                                        <label class="mdl-textfield__label" for="country">Country</label>
                                     </div>
                                 </div>
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="postal_code" placeholder="10001">
-                                        <label class="mdl-textfield__label" for="sample3">Postal Code</label>
+                                        <input class="mdl-textfield__input" type="text" id="postal_code" name="postal_code" placeholder="10001">
+                                        <label class="mdl-textfield__label" for="postal_code">Postal Code</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-element mdl-cell--12-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="tel" id="phone_number" placeholder="(212) 692-93-92">
-                                        <label class="mdl-textfield__label" for="sample3">Phone Number</label>
+                                        <input class="mdl-textfield__input" type="tel" id="phone_number" name="phone_number" placeholder="(212) 692-93-92">
+                                        <label class="mdl-textfield__label" for="phone_number">Phone Number</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                             </div>
@@ -177,27 +186,30 @@
                             <div class="mdl-grid">
                                 <div class="mdl-cell mdl-element mdl-cell--12-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" id="postal_code" placeholder="0000-0000-0000-0000">
-                                        <label class="mdl-textfield__label" for="sample3">Credit Card Number</label>
+                                        <input class="mdl-textfield__input" type="text" id="card_number" name="card_number" placeholder="0000-0000-0000-0000">
+                                        <label class="mdl-textfield__label" for="card_number">Credit Card Number</label>
                                         <i class="mdl-icon-toggle__label material-icons label-icon">credit_card</i>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="postal_code" placeholder="****">
-                                        <label class="mdl-textfield__label" for="sample3">Security Code</label>
+                                        <input class="mdl-textfield__input" type="password" id="security_code" name="security_code" placeholder="****">
+                                        <label class="mdl-textfield__label" for="security_code">Security Code</label>
                                         <i class="mdl-icon-toggle__label material-icons label-icon">help_outline</i>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
                                 <div class="mdl-cell mdl-element mdl-cell--6-col">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="postal_code" placeholder="MM / YY">
-                                        <label class="mdl-textfield__label" for="sample3">Expiration Date</label>
+                                        <input class="mdl-textfield__input" type="date" id="expiration_date" name="expiration_date" placeholder="MM / YY">
+                                        <label class="mdl-textfield__label" for="expiration_date">Expiration Date</label>
+                                        <span class="mdl-textfield__error messages"></span>
                                     </div>
                                 </div>
 
                                 <div class="mdl-cell mdl-cell--12-col">
-                                    <button type="submit" class="purchase_btn mdl-button mdl-js-button mdl-js-ripple-effect">
+                                    <button type="submit" id="purchase_btn" class="purchase_btn mdl-button mdl-js-button mdl-js-ripple-effect">
                                         <i class="material-icons">shopping_cart</i>COMPLETE PURCHASE
                                     </button>
                                 </div>
@@ -268,6 +280,7 @@
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
     <!-- build:js(app/) ../../scripts/main.min.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/validator.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
